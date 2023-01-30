@@ -1,0 +1,8 @@
+key is always on the left
+value is always on the right. Can be any value (str, int, float, etc.)
+
+keys are default
+
+methods are specific to string objects. 
+
+a keyerror means that a match was not found for the given key.
