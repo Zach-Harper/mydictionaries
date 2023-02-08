@@ -193,7 +193,7 @@ ProduceDictionary={
     'Brussels sprouts': {
         'cost': 1.65,
         'amt_sold': 22.9,
-        'total': 37.79
+        'total': 37.78
     },
     'Kale': {
         'cost': 5.02,
@@ -207,3 +207,12 @@ ProduceDictionary={
     }
 }
 
+
+for x in ProduceDictionary:
+    y = round(float(ProduceDictionary[x]['cost'])*float(ProduceDictionary[x]['amt_sold']),2)
+    if y != float(ProduceDictionary[x]['total']):
+        print(f"Produce Name: {x}")
+        print(f"Calculated Total: ${y:.2f}")
+        print(f"Stated Total: ${ProduceDictionary[x]['total']:.2f}")
+        print()
+        print()
