@@ -37,17 +37,24 @@ Latitude: 14.7628
 import json
 
 infile = open("eq_data.json","r")
-
+2
 eq = json.load(infile)
-for i in range(len(eq["type"])):
-   if eq["features"][i]["properties"]["mag"] >= 6.0:
-      eq_dict = {"Location:":eq["features"][i]["properties"]["place"], "Magnitude:":eq["features"][i]["properties"]["mag"],
-      "Longitude:":eq["features"][i]["geometry"]["coordinates"][0], "Latitude:":eq["features"][i]["geometry"]["coordinates"][1]}
-      print(eq_dict)
 
-      # print()
-      # print("Location:",  eq["features"][i]["properties"]["place"])
-      # print("Magnitude:", eq["features"][i]["properties"]["mag"])
-      # print("Longitude:", eq["features"][i]["geometry"]["coordinates"][0])
-      # print("Latitude:",  eq["features"][i]["geometry"]["coordinates"][1])
-      # print()
+f = 0
+
+while f == 0:
+   print()
+   mag = float(input("What minimum magnitude are you looking for? Input '0' to exit: "))
+   if mag == 0 :
+      exit()
+   print()
+   for i in range(len(eq["features"])):
+      if eq["features"][i]["properties"]["mag"] >= mag:
+         eq_dict = {"Location":eq["features"][i]["properties"]["place"], "Magnitude":eq["features"][i]["properties"]["mag"],
+         "Longitude":eq["features"][i]["geometry"]["coordinates"][0], "Latitude":eq["features"][i]["geometry"]["coordinates"][1]}
+         print("Location:",eq_dict["Location"])
+         print("Magnitude:",eq_dict["Magnitude"])
+         print("Longitude:",eq_dict["Longitude"])
+         print("Latitude:",eq_dict["Latitude"])
+         print()
+         print()
