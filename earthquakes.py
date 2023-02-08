@@ -31,22 +31,19 @@ Longitude: -92.2981
 Latitude: 14.7628
 
 '''
-
-
-
 import json
-
 infile = open("eq_data.json","r")
-2
 eq = json.load(infile)
 
 f = 0
-
 while f == 0:
    print()
    mag = float(input("What minimum magnitude are you looking for? Input '0' to exit: "))
-   if mag == 0 :
+   if mag == 0:
+      print()
+      print("Have a nice day.")
       exit()
+
    print()
    for i in range(len(eq["features"])):
       if eq["features"][i]["properties"]["mag"] >= mag:
